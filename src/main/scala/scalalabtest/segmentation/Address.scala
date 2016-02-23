@@ -4,6 +4,11 @@ package scalalabtest.segmentation
   * Created by Maxim Selyuk on 22.02.16.
   */
 class Address(val value: Long) {
+  def <=(that: Address) = this.value <= that.value
+
+  def >=(that: Address) = this.value >= that.value
+
+  // delete
   override def toString = s"$value"
 }
 
@@ -14,9 +19,8 @@ object Address {
 
   def apply(strVal: String) = fromString(strVal)
 
-  /** Translates IP address from dotted-decimal address to decimal format
-    * @param str IP address in dotted-decimal representation
-    * @return an object of class Address
+  /**
+    *  Translates IP address from dotted-decimal address to decimal format
     */
   def fromString(str: String): Address =
     Address(str.split("\\.").map(_.toLong).zip(POWERS).map(p => p._1*p._2).sum)
