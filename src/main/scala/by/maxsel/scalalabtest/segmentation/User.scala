@@ -1,11 +1,10 @@
-package scalalabtest.segmentation
+package by.maxsel.scalalabtest.segmentation
 
 /**
  * Created by Maxim Selyuk on 22.02.16.
  */
 class User(val userId: Long, val address: Address) {
-  // delete
-  override def toString = s"User($userId, $address)"
+
 }
 
 object User {

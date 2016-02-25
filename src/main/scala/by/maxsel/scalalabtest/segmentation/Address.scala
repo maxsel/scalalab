@@ -1,4 +1,4 @@
-package scalalabtest.segmentation
+package by.maxsel.scalalabtest.segmentation
 
 /**
   * Created by Maxim Selyuk on 22.02.16.
@@ -7,9 +7,6 @@ class Address(val value: Long) {
   def <=(that: Address) = this.value <= that.value
 
   def >=(that: Address) = this.value >= that.value
-
-  // delete
-  override def toString = s"$value"
 }
 
 object Address {
