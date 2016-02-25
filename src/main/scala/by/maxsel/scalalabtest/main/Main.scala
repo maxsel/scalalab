@@ -1,8 +1,8 @@
 package by.maxsel.scalalabtest.main
 
+import scala.io.Source
 import java.io.PrintWriter
 import by.maxsel.scalalabtest.segmentation._
-import scala.io.Source
 
 /**
   * Created by Maxim Selyuk on 22.02.16.
@@ -55,7 +55,7 @@ object Main {
     * Writes segmented users to TSV file
     */
   def writeToFile(segmented: List[(Long, List[String])]): Unit = {
-    val strings = segmented.map(p => p._1.toString + "\t" + p._2.mkString)
+    val strings = segmented.flatMap(p => p._2.map(p._1.toString + "\t" + _))
     new PrintWriter(PATH_TO_OUTPUT) { write(strings.mkString("\n")); close() }
   }
 
